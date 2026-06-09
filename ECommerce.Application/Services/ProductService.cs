@@ -43,7 +43,7 @@ public class ProductService : IProductService
             Description = p.Description,
             Price = p.Price,
             Stock = p.Stock,
-            CategoryName = p.Category.Name,
+            CategoryName = p.Category?.Name ?? "",
             ImageUrl = p.ImageUrl
         }).ToList();
     }

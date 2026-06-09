@@ -15,7 +15,9 @@ public static class DependencyInjection
         //services.AddDbContext<AppDbContext>(options =>
         //    options.UseSqlServer(config.GetConnectionString("DefaultConnection")));
         services.AddDbContext<AppDbContext>(options =>
-        options.UseNpgsql(config.GetConnectionString("DefaultConnection")));
+    options.UseNpgsql(config.GetConnectionString("DefaultConnection"))
+           .EnableSensitiveDataLogging()
+           .LogTo(Console.WriteLine));
 
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IProductRepository, ProductRepository>();
